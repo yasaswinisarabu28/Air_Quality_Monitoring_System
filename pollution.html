@@ -3,19 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Check Air Quality</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main class="page">
-        <p class="brand">🌿 Air Quality Monitor</p>
 
-        <section class="search card">
+<body>
+
+    <main class="page pollution-page">
+
+        <!-- Header -->
+        <header class="pollution-header">
+
+            <p class="brand">🌿 Air Quality Monitor</p>
+
             <h1>Check Air Quality</h1>
-            <p class="lead">Enter your city or area to view the latest available air-quality information.</p>
+
+            <p>
+                Enter your city or area to view the latest available
+                air-quality information and understand what it means.
+            </p>
+
+        </header>
+
+
+        <!-- Search Card -->
+        <section class="search-card card">
+
+            <h2>Where are you?</h2>
+
+            <p class="search-description">
+                Search for an Indian city or area to get its latest
+                available air-quality data.
+            </p>
 
             <div class="search-row">
+
                 <div class="search-field">
+
                     <input
                         type="text"
                         id="area"
@@ -33,6 +59,7 @@
                         role="listbox"
                         hidden
                     ></ul>
+
                 </div>
 
                 <button
@@ -42,24 +69,84 @@
                 >
                     Check Air Quality
                 </button>
+
             </div>
 
-            <p class="note">
-                Air-quality data is retrieved using OpenWeather API.
+            <p class="search-note">
+                💡 Start typing to see matching places.
             </p>
+
         </section>
 
+
+        <!-- Quick Information -->
+        <section class="quick-info">
+
+            <div class="quick-info-card">
+
+                <div class="quick-icon">🌍</div>
+
+                <div>
+                    <strong>Indian locations</strong>
+                    <span>
+                        Search cities and areas across India
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="quick-info-card">
+
+                <div class="quick-icon">💨</div>
+
+                <div>
+                    <strong>PM2.5 &amp; PM10</strong>
+                    <span>
+                        View key particulate measurements
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="quick-info-card">
+
+                <div class="quick-icon">📊</div>
+
+                <div>
+                    <strong>CPCB AQI</strong>
+                    <span>
+                        Understand the 0–500 AQI scale
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Results -->
         <div id="result" aria-live="polite"></div>
 
-        <p class="back">
-            <a href="index.html">← Back to Home</a>
-        </p>
+
+        <!-- Back -->
+        <footer class="pollution-footer">
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
+        </footer>
+
     </main>
 
-    <!-- Load config.js FIRST -->
+
+    <!-- IMPORTANT: config.js first -->
     <script src="config.js"></script>
 
-    <!-- Load script.js SECOND -->
+    <!-- script.js second -->
     <script src="script.js"></script>
+
 </body>
 </html>

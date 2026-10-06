@@ -1,19 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap");
 
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
 :root {
     --bg: #f2f8f4;
     --card: #ffffff;
     --ink: #12312a;
     --muted: #5a7068;
     --line: #d9e8e0;
+
     --accent: #1f7a5a;
     --accent-dark: #165c44;
+
     --radius: 16px;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
-html, body { margin: 0; }
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: "Manrope", "Segoe UI", Arial, sans-serif;
@@ -29,30 +41,65 @@ body {
     padding: 32px 20px 56px;
 }
 
-.page-narrow { max-width: 620px; }
-
-h1, h2, h3, p { margin-top: 0; }
-
-h1 { font-size: 2rem; line-height: 1.2; font-weight: 800; margin-bottom: 12px; }
-h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
-h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-
-.brand {
-    font-weight: 700;
-    color: var(--accent-dark);
-    margin-bottom: 24px;
+.page-narrow {
+    max-width: 620px;
 }
 
-.lead { color: var(--muted); font-size: 1.05rem; }
-.muted { color: var(--muted); }
-.small { font-size: 0.85rem; }
-.note { color: var(--muted); font-size: 0.85rem; margin: 14px 0 0; }
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
 
-/* Home page */
-.home { text-align: center; padding-top: 12vh; }
-.home .lead { margin-bottom: 28px; }
+h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
 
-/* Cards */
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+a {
+    color: var(--accent-dark);
+    font-weight: 700;
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 0.85rem;
+}
+
+.note {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 14px 0 0;
+}
+
+
+/* =========================================================
+   COMMON CARDS
+   ========================================================= */
+
 .card {
     background: var(--card);
     border: 1px solid var(--line);
@@ -61,214 +108,1564 @@ h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
     margin-bottom: 20px;
 }
 
-/* Buttons and inputs */
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 .btn {
     display: inline-block;
-    padding: 14px 24px;
+
     min-height: 48px;
+    padding: 14px 24px;
+
     background: var(--accent);
-    color: #fff;
+    color: #ffffff;
+
     font: inherit;
     font-weight: 700;
+
     text-decoration: none;
+
     border: none;
     border-radius: 12px;
+
     cursor: pointer;
-}
-.btn:hover { background: var(--accent-dark); }
-.btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.btn-lg { padding: 16px 32px; font-size: 1.05rem; }
 
-input[type="text"] {
-    flex: 1;
-    min-width: 0;
-    min-height: 48px;
-    padding: 12px 16px;
-    font: inherit;
-    color: var(--ink);
-    background: #fff;
-    border: 1.5px solid var(--line);
-    border-radius: 12px;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-input[type="text"]:focus,
+.btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    font-size: 1.05rem;
+}
+
 .btn:focus-visible,
 a:focus-visible {
     outline: 3px solid #8fd0b3;
     outline-offset: 2px;
 }
 
-.search-row { display: flex; gap: 12px; margin-top: 20px; }
 
-a { color: var(--accent-dark); font-weight: 700; }
-.back { margin-top: 28px; }
+/* =========================================================
+   INDEX / HOME PAGE
+   ========================================================= */
 
-/* Loading and errors */
-.status { text-align: center; }
-.status p { margin: 0; color: var(--muted); }
-.status.error { border-color: #f0c9c6; background: #fff7f6; }
-.status.error h2 { color: #8f1d18; }
-.status.error p { color: #5e2a27; }
+.home {
+    max-width: 900px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+
+/* =========================================================
+   HOME HERO
+   ========================================================= */
+
+.home-hero {
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+
+    padding: 55px 28px 45px;
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(26, 152, 80, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(124, 181, 24, 0.15),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #f7fcf8,
+            #eef8f1
+        );
+
+    border: 1px solid rgba(26, 152, 80, 0.12);
+
+    box-shadow:
+        0 18px 50px rgba(31, 78, 52, 0.08);
+}
+
+.home-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background: rgba(124, 181, 24, 0.08);
+
+    right: -75px;
+    top: -75px;
+}
+
+.home-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    background: rgba(26, 152, 80, 0.07);
+
+    left: -60px;
+    bottom: -60px;
+}
+
+.home-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   HOME ICON
+   ========================================================= */
+
+.home-icon {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 10px 25px rgba(26, 152, 80, 0.12);
+}
+
+
+/* =========================================================
+   HOME BRAND
+   ========================================================= */
+
+.brand {
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-bottom: 24px;
+}
+
+.home-hero .brand {
+    margin-bottom: 13px;
+}
+
+
+/* =========================================================
+   HOME HERO TEXT
+   ========================================================= */
+
+.home-hero h1 {
+    max-width: 730px;
+
+    margin: 0 auto 18px;
+
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    color: #173d29;
+}
+
+.home-hero .lead {
+    max-width: 650px;
+
+    margin: 0 auto 28px;
+
+    font-size: 1.06rem;
+
+    line-height: 1.7;
+
+    color: #637169;
+}
+
+
+/* =========================================================
+   HOME ACTIONS
+   ========================================================= */
+
+.home-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.home-actions .btn {
+    min-width: 195px;
+}
+
+.home-note {
+    margin-top: 17px;
+
+    font-size: 0.82rem;
+
+    color: #738078;
+}
+
+
+/* =========================================================
+   HOME SECTIONS
+   ========================================================= */
+
+.home-section {
+    margin-top: 45px;
+}
+
+.home-section-title {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.home-section-title h2 {
+    margin: 0 0 7px;
+    color: #173d29;
+}
+
+.home-section-title p {
+    margin: 0;
+    color: #69766e;
+}
+
+
+/* =========================================================
+   HOME AQI PREVIEW
+   ========================================================= */
+
+.aqi-preview {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.aqi-preview-card {
+    padding: 20px;
+
+    border-radius: 19px;
+
+    border: 1px solid #e4ebe6;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.aqi-preview-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 30px rgba(30, 60, 42, 0.08);
+}
+
+.aqi-preview-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 8px;
+}
+
+.aqi-dot {
+    width: 12px;
+    height: 12px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+}
+
+.aqi-preview-card h3 {
+    margin: 0;
+
+    font-size: 1rem;
+
+    color: #20382a;
+}
+
+.aqi-range {
+    margin-bottom: 7px;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    color: #68756d;
+}
+
+.aqi-preview-card p {
+    margin: 0;
+
+    font-size: 0.88rem;
+
+    line-height: 1.5;
+
+    color: #69766e;
+}
+
+
+/* =========================================================
+   AQI COLORS
+   ========================================================= */
+
+.aqi-good .aqi-dot {
+    background: #1a9850;
+}
+
+.aqi-satisfactory .aqi-dot {
+    background: #7cb518;
+}
+
+.aqi-moderate .aqi-dot {
+    background: #e0a800;
+}
+
+.aqi-poor .aqi-dot {
+    background: #ee7d1a;
+}
+
+.aqi-very-poor .aqi-dot {
+    background: #d9362f;
+}
+
+.aqi-severe .aqi-dot {
+    background: #8e1b3a;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.steps {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+.step {
+    text-align: center;
+
+    padding: 27px 20px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e4ebe6;
+
+    background: #ffffff;
+}
+
+.step-number {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e8f6ee;
+
+    color: #0d5a2d;
+
+    font-weight: 700;
+
+    font-size: 1rem;
+}
+
+.step h3 {
+    margin: 0 0 8px;
+
+    color: #20382a;
+}
+
+.step p {
+    margin: 0;
+
+    color: #69766e;
+
+    font-size: 0.9rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   HOME CTA
+   ========================================================= */
+
+.home-cta {
+    position: relative;
+    overflow: hidden;
+
+    margin-top: 45px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #173d29,
+            #205c3a
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 18px 40px rgba(23, 61, 41, 0.16);
+}
+
+.home-cta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    right: -70px;
+    top: -80px;
+}
+
+.home-cta-icon {
+    position: relative;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.home-cta h2 {
+    position: relative;
+
+    margin: 0 0 9px;
+
+    color: #ffffff;
+}
+
+.home-cta p {
+    position: relative;
+
+    max-width: 570px;
+
+    margin: 0 auto 20px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    line-height: 1.6;
+}
+
+.home-cta .btn {
+    position: relative;
+
+    background: #ffffff;
+
+    color: #173d29;
+}
+
+.home-cta .btn:hover {
+    background: #f2f7f4;
+}
+
+
+/* =========================================================
+   HOME FOOTER
+   ========================================================= */
+
+.home-footer {
+    margin-top: 32px;
+
+    text-align: center;
+
+    color: #7a857e;
+}
+
+.home-footer p {
+    margin: 0 0 4px;
+
+    color: #3c5545;
+
+    font-weight: 600;
+}
+
+.home-footer span {
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   POLLUTION PAGE
+   ========================================================= */
+
+.pollution-page {
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+
+/* =========================================================
+   POLLUTION HEADER
+   ========================================================= */
+
+.pollution-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pollution-header .brand {
+    margin-bottom: 10px;
+}
+
+.pollution-header h1 {
+    margin: 0 0 10px;
+
+    font-size: clamp(2rem, 5vw, 2.8rem);
+
+    line-height: 1.1;
+
+    letter-spacing: -0.8px;
+}
+
+.pollution-header > p:last-child {
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: #69766e;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SEARCH CARD
+   ========================================================= */
+
+.search-card {
+    position: relative;
+    overflow: visible;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcf9,
+            #ffffff
+        );
+
+    border: 1px solid #e2ebe5;
+
+    box-shadow:
+        0 15px 40px rgba(30, 70, 45, 0.07);
+}
+
+.search-card h2 {
+    margin: 0 0 7px;
+    font-size: 1.35rem;
+}
+
+.search-description {
+    margin: 0 0 20px;
+
+    color: #6b776f;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SEARCH ROW
+   ========================================================= */
+
+.search-row {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.search-field {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.search-field input[type="text"] {
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d7e1da;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #183524;
+
+    font: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.search-field input::placeholder {
+    color: #9aa69f;
+}
+
+.search-field input:focus {
+    border-color: #1a9850;
+
+    box-shadow:
+        0 0 0 4px rgba(26, 152, 80, 0.10);
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+   ========================================================= */
+
+.search-row .btn {
+    min-height: 52px;
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    white-space: nowrap;
+}
+
+.search-row .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   AUTOCOMPLETE
+   ========================================================= */
+
+.suggestions {
+    position: absolute;
+
+    z-index: 100;
+
+    left: 0;
+    right: 0;
+
+    top: calc(100% + 7px);
+
+    margin: 0;
+    padding: 6px;
+
+    list-style: none;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe8e2;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 35px rgba(20, 50, 32, 0.13);
+
+    max-height: 240px;
+
+    overflow-y: auto;
+
+    text-align: left;
+}
+
+.suggestions[hidden] {
+    display: none;
+}
+
+.suggestions li {
+    padding: 12px 13px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    color: #24382b;
+
+    font-size: 0.95rem;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.suggestions li[role="option"]:hover,
+.suggestions li[role="option"].active {
+    background: #eaf6ee;
+
+    color: #0d5a2d;
+}
+
+.suggestions li small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 0.8rem;
+}
+
+.suggestions .no-match {
+    color: #7a857e;
+
+    cursor: default;
+
+    font-size: 0.9rem;
+}
+
+.suggestions .no-match:hover {
+    background: transparent;
+}
+
+
+/* =========================================================
+   SEARCH NOTE
+   ========================================================= */
+
+.search-note {
+    margin: 14px 0 0;
+
+    font-size: 0.82rem;
+
+    color: #7a857e;
+}
+
+
+/* =========================================================
+   QUICK INFORMATION
+   ========================================================= */
+
+.quick-info {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 22px;
+}
+
+.quick-info-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border: 1px solid #e4ebe6;
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.quick-info-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(30, 70, 45, 0.07);
+}
+
+.quick-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #e9f6ed;
+
+    font-size: 19px;
+}
+
+.quick-info-card strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: 0.9rem;
+
+    color: #20382a;
+}
+
+.quick-info-card span {
+    display: block;
+
+    font-size: 0.78rem;
+
+    color: #748078;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+#result {
+    margin-top: 30px;
+}
+
+#result:empty {
+    display: none;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+   ========================================================= */
+
+.status {
+    text-align: center;
+}
+
+.status p {
+    margin: 0;
+
+    color: var(--muted);
+}
+
+.status.error {
+    border-color: #f0c9c6;
+
+    background: #fff7f6;
+}
+
+.status.error h2 {
+    color: #8f1d18;
+}
+
+.status.error p {
+    color: #5e2a27;
+}
 
 .spinner {
     width: 32px;
     height: 32px;
+
     margin: 0 auto 12px;
+
     border: 4px solid var(--line);
+
     border-top-color: var(--accent);
+
     border-radius: 50%;
+
     animation: spin 0.9s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
 
-/* Report */
-.report-head { margin: 8px 0 16px; }
-.report-head p { margin-bottom: 2px; }
-.report-head h2 { font-size: 1.8rem; font-weight: 800; margin: 0; }
-
-.section-title { margin: 28px 0 12px; }
-
-/* Main AQI card */
-.aqi-card {
-    text-align: center;
-    background: var(--soft, #fff);
-    border: 2px solid var(--cat, var(--line));
-    padding: 28px 24px;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
-.card-label { font-weight: 700; color: var(--muted); margin-bottom: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .spinner {
+        animation-duration: 3s;
+    }
+}
+
+
+/* =========================================================
+   REPORT HEADER
+   ========================================================= */
+
+.report-head {
+    margin: 8px 0 18px;
+}
+
+.report-head p {
+    margin-bottom: 2px;
+}
+
+.report-head h2 {
+    margin: 3px 0 0;
+
+    font-size: 1.8rem;
+
+    font-weight: 800;
+
+    color: #173d29;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+    margin-top: 30px;
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   AQI CARD
+   ========================================================= */
+
+.aqi-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--soft, #f8fcf9),
+            #ffffff
+        );
+
+    border: 2px solid var(--cat, var(--line));
+
+    box-shadow:
+        0 15px 40px rgba(30, 70, 45, 0.08);
+
+    text-align: center;
+}
+
+.aqi-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: var(--cat, #1a9850);
+}
+
+.card-label {
+    font-weight: 700;
+
+    color: var(--muted);
+
+    margin-bottom: 4px;
+}
 
 .aqi-number {
-    font-size: 5rem;
-    line-height: 1;
+    margin: 5px 0 0;
+
+    font-size: clamp(4rem, 12vw, 6rem);
+
     font-weight: 800;
-    color: var(--on, var(--ink));
-    margin: 8px 0;
+
+    line-height: 0.95;
+
+    color: var(--cat, #1a9850);
+
+    letter-spacing: -3px;
 }
 
 .aqi-category {
     display: inline-block;
+
+    margin: 10px 0 16px;
+
     padding: 6px 20px;
+
     font-size: 1.25rem;
+
     font-weight: 800;
-    color: #fff;
+
+    color: #ffffff;
+
     background: var(--on, var(--ink));
+
     border-radius: 999px;
-    margin-bottom: 16px;
 }
 
-.summary { font-size: 1.05rem; margin-bottom: 24px; }
+.summary {
+    font-size: 1.05rem;
 
-.aqi-card.unavailable .aqi-category { background: transparent; color: var(--ink); padding: 0; }
+    margin-bottom: 24px;
+}
 
-/* Scale */
-.scale { position: relative; padding-top: 30px; margin: 0 4px 12px; }
-.scale-bar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; gap: 2px; }
-.scale-bar span { display: block; }
+.aqi-card.unavailable .aqi-category {
+    background: transparent;
+
+    color: var(--ink);
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   AQI SCALE
+   ========================================================= */
+
+.scale {
+    position: relative;
+
+    margin: 28px 4px 0;
+
+    padding-top: 30px;
+}
+
+.scale-bar {
+    display: flex;
+
+    width: 100%;
+
+    height: 16px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    gap: 2px;
+}
+
+.scale-bar span {
+    display: block;
+
+    height: 100%;
+}
 
 .scale-marker {
     position: absolute;
+
     top: 0;
+
     transform: translateX(-50%);
+
+    width: 0;
+
     text-align: center;
 }
+
 .scale-marker em {
     display: block;
+
+    padding: 4px 8px;
+
+    border-radius: 7px;
+
+    background: #173d29;
+
+    color: #ffffff;
+
+    font-size: 0.75rem;
+
     font-style: normal;
-    font-weight: 800;
-    font-size: 0.8rem;
-    background: var(--ink);
-    color: #fff;
-    padding: 1px 8px;
-    border-radius: 6px;
+
+    font-weight: 700;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
 }
+
 .scale-marker::after {
     content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin: 0 auto;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 7px solid var(--ink);
+
+    position: absolute;
+
+    top: 28px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 3px;
+    height: 22px;
+
+    background: #173d29;
+
+    border-radius: 3px;
 }
+
+
+/* =========================================================
+   AQI LEGEND
+   ========================================================= */
 
 .legend {
-    list-style: none;
-    margin: 0 0 16px;
-    padding: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px 10px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px 18px;
+
+    margin: 22px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+
     text-align: left;
-    font-size: 0.8rem;
-    color: var(--muted);
+
+    font-size: 0.82rem;
+
+    color: #69766e;
 }
-.legend li { display: flex; align-items: center; gap: 6px; }
-.legend i { flex: none; width: 10px; height: 10px; border-radius: 50%; }
-.legend b { color: var(--ink); }
 
-/* What does this mean */
-.meaning { border-left: 6px solid var(--cat); }
-.meaning p { margin-bottom: 10px; }
-.meaning .concern { margin: 0; }
+.legend li {
+    display: flex;
 
-/* Pollutants */
-.pollutants { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.pollutant { margin: 0; }
-.pollutant-value { font-size: 1.7rem; font-weight: 800; margin-bottom: 6px; }
-.pollutant-value span { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
-.pollutant .muted { margin: 0; font-size: 0.9rem; }
+    align-items: center;
 
-/* OpenWeather */
-.ow p { margin-bottom: 6px; }
-.ow .muted { margin: 10px 0 0; font-size: 0.9rem; }
-
-/* Tablet and mobile */
-@media (max-width: 600px) {
-    .page { padding: 20px 14px 40px; }
-    h1 { font-size: 1.6rem; }
-    .search-row { flex-direction: column; }
-    .search-row .btn { width: 100%; }
-    .card { padding: 18px; }
-    .aqi-number { font-size: 4.5rem; }
-    .legend { grid-template-columns: repeat(2, 1fr); }
-    .pollutants { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pollutant-value { font-size: 1.35rem; }
+    gap: 7px;
 }
+
+.legend li i {
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+}
+
+.legend b {
+    color: var(--ink);
+}
+
+
+/* =========================================================
+   MEANING CARD
+   ========================================================= */
+
+.meaning {
+    margin-top: 18px;
+
+    padding: 23px;
+
+    border-left: 5px solid var(--cat, #1a9850);
+}
+
+.meaning h2 {
+    margin-top: 0;
+}
+
+.meaning p {
+    margin-bottom: 10px;
+
+    line-height: 1.65;
+}
+
+.meaning .concern {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   POLLUTANT CARDS
+   ========================================================= */
+
+.pollutants {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+.pollutant {
+    padding: 21px;
+
+    margin: 0;
+
+    border-radius: 18px;
+
+    border: 1px solid #e4ebe6;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pollutant:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(30, 70, 45, 0.06);
+}
+
+.pollutant h3 {
+    margin-top: 0;
+}
+
+.pollutant-value {
+    margin: 8px 0;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    color: #173d29;
+}
+
+.pollutant-value span {
+    font-size: 0.85rem;
+
+    font-weight: 500;
+
+    color: #748078;
+}
+
+.pollutant .muted {
+    margin: 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   OPENWEATHER CARD
+   ========================================================= */
+
+.ow {
+    padding: 22px;
+
+    border: 1px solid #e4ebe6;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+}
+
+.ow p {
+    margin-bottom: 6px;
+
+    line-height: 1.55;
+}
+
+.ow .muted {
+    margin: 10px 0 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   POLLUTION FOOTER
+   ========================================================= */
+
+.pollution-footer {
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+.pollution-footer a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #176b3b;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.pollution-footer a:hover {
+    color: #0d4d2b;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.back {
+    margin-top: 28px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 20px 14px 40px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    /* Home */
+
+    .home {
+        padding-top: 22px;
+    }
+
+    .home-hero {
+        padding: 38px 18px 32px;
+
+        border-radius: 22px;
+    }
+
+    .home-hero h1 {
+        font-size: 2.25rem;
+
+        letter-spacing: -1px;
+    }
+
+    .home-hero .lead {
+        font-size: 0.98rem;
+    }
+
+    .home-actions {
+        flex-direction: column;
+    }
+
+    .home-actions .btn {
+        width: 100%;
+    }
+
+    .aqi-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .home-cta {
+        padding: 30px 20px;
+    }
+
+    /* Pollution */
+
+    .pollution-page {
+        padding-top: 22px;
+    }
+
+    .pollution-header h1 {
+        font-size: 2rem;
+    }
+
+    .search-card {
+        padding: 20px;
+
+        border-radius: 20px;
+    }
+
+    .search-row {
+        flex-direction: column;
+    }
+
+    .search-row .btn {
+        width: 100%;
+    }
+
+    .quick-info {
+        grid-template-columns: 1fr;
+    }
+
+    .pollutants {
+        grid-template-columns: 1fr;
+    }
+
+    .legend {
+        grid-template-columns: 1fr;
+    }
+
+    .aqi-card {
+        padding: 22px;
+    }
+
+    .aqi-number {
+        font-size: 4.5rem;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .home-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .home-icon {
+        width: 68px;
+        height: 68px;
+
+        font-size: 34px;
+    }
+
+    .home-hero h1 {
+        font-size: 2rem;
+    }
+
+    .aqi-preview-card {
+        padding: 17px;
+    }
+
+    .pollution-header {
+        margin-bottom: 22px;
+    }
+
+    .search-card {
+        padding: 17px;
+    }
+
+    .quick-info-card {
+        padding: 14px;
+    }
+
+    .aqi-card {
+        padding: 18px;
+    }
+
+    .aqi-number {
+        font-size: 4rem;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
 
 @media (max-width: 380px) {
-    .pollutants { grid-template-columns: 1fr; }
-}
-/* Place suggestions */
-.search-field { position: relative; flex: 1; min-width: 0; }
-.search-field input[type="text"] { width: 100%; }
 
-.suggestions {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    right: 0;
-    z-index: 10;
-    margin: 0;
-    padding: 6px;
-    list-style: none;
-    background: var(--card);
-    border: 1.5px solid var(--line);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(18, 49, 42, 0.12);
-    text-align: left;
-}
-.suggestions[hidden] { display: none; }
+    .pollutants {
+        grid-template-columns: 1fr;
+    }
 
-.suggestions li {
-    padding: 10px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
+    .legend {
+        grid-template-columns: 1fr;
+    }
 }
-.suggestions li small { display: block; color: var(--muted); font-size: 0.8rem; }
-.suggestions li:hover,
-.suggestions li.active { background: #e8f6ee; }
-.suggestions .no-match { color: var(--muted); cursor: default; }
-.suggestions .no-match:hover { background: transparent; }
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .btn,
+    .aqi-preview-card,
+    .quick-info-card,
+    .pollutant {
+        transition: none;
+    }
+}

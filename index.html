@@ -3,16 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Air Quality Monitor</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <main class="page page-narrow home">
-        <p class="brand">🌿 Air Quality Monitor</p>
-        <h1>Is the air safe to breathe where you are?</h1>
-        <p class="lead">Check the air quality of any Indian city or area and see what it means for you, in plain language.</p>
-        <a href="pollution.html" class="btn btn-lg">Check Air Quality</a>
-        <p class="note">Air-quality data is retrieved using OpenWeather API.</p>
+
+        <!-- Hero Section -->
+        <section class="home-hero">
+
+            <div class="home-icon" aria-hidden="true">
+                🌿
+            </div>
+
+            <p class="brand">Air Quality Monitor</p>
+
+            <h1>
+                Is the air safe to breathe where you are?
+            </h1>
+
+            <p class="lead">
+                Check the latest available air-quality information
+                for any Indian city or area and understand what it
+                means for you, in plain language.
+            </p>
+
+            <div class="home-actions">
+                <a href="pollution.html" class="btn btn-lg">
+                    Check Air Quality →
+                </a>
+            </div>
+
+            <p class="home-note">
+                Air-quality data is retrieved using OpenWeather API.
+            </p>
+
+        </section>
+
+
+        <!-- AQI Categories -->
+        <section class="home-section">
+
+            <div class="home-section-title">
+                <h2>Understand the AQI</h2>
+
+                <p>
+                    Know what different air-quality levels mean.
+                </p>
+            </div>
+
+
+            <div class="aqi-preview">
+
+                <div class="aqi-preview-card aqi-good">
+                    <div class="aqi-preview-top">
+                        <span class="aqi-dot"></span>
+                        <h3>Good</h3>
+                    </div>
+
+                    <div class="aqi-range">
+                        0–50
+                    </div>
+
+                    <p>
+                        Little or no health concern.
+                    </p>
+                </div>
+
+
+                <div class="aqi-preview-card aqi-satisfactory">
+                    <div class="aqi-preview-top">
+                        <span class="aqi-dot"></span>
+                        <h3>Satisfactory</h3>
+                    </div>
+
+                    <div class="aqi-range">
+                        51–100
+                    </div>
+
+                    <p>
+                        Generally acceptable air quality.
+                    </p>
+                </div>
+
+
+                <div class="aqi-preview-card aqi-moderate">
+                    <div class="aqi-preview-top">
+                        <span class="aqi-dot"></span>
+                        <h3>Moderate</h3>
+                    </div>
+
+                    <div class="aqi-range">
+                        101–200
+                    </div>
+
+                    <p>
+                        Sensitive people may experience discomfort.
+                    </p>
+                </div>
+
+
+                <div class="aqi-preview-card aqi-poor">
+                    <div class="aqi-preview-top">
+                        <span class="aqi-dot"></span>
+                        <h3>Poor</h3>
+                    </div>
+
+                    <div class="aqi-range">
+                        201–300
+                    </div>
+
+                    <p>
+                        Consider limiting long outdoor activity.
+                    </p>
+                </div>
+
+
+                <div class="aqi-preview-card aqi-very-poor">
+                    <div class="aqi-preview-top">
+                        <span class="aqi-dot"></span>
+                        <h3>Very Poor</h3>
+                    </div>
+
+                    <div class="aqi-range">
+                        301–400
+                    </div>
+
+                    <p>
+                        Limit outdoor activity where possible.
+                    </p>
+                </div>
+
+
+                <div class="aqi-preview-card aqi-severe">
+                    <div class="aqi-preview-top">
+                        <span class="aqi-dot"></span>
+                        <h3>Severe</h3>
+                    </div>
+
+                    <div class="aqi-range">
+                        401–500
+                    </div>
+
+                    <p>
+                        Avoid outdoor exertion when possible.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- How It Works -->
+        <section class="home-section">
+
+            <div class="home-section-title">
+                <h2>How it works</h2>
+
+                <p>
+                    Check your local air quality in just a few seconds.
+                </p>
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>Choose a place</h3>
+
+                    <p>
+                        Enter an Indian city or area and select
+                        the matching location.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>Get the data</h3>
+
+                    <p>
+                        Retrieve the latest available PM2.5
+                        and PM10 information.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>Understand it</h3>
+
+                    <p>
+                        View the CPCB AQI and learn what the
+                        air-quality level means.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom CTA -->
+        <section class="home-cta">
+
+            <div class="home-cta-icon">
+                🌱
+            </div>
+
+            <h2>
+                Curious about the air around you?
+            </h2>
+
+            <p>
+                Check your city's air quality and find out whether
+                today's conditions are good, moderate, or something
+                to be more cautious about.
+            </p>
+
+            <a href="pollution.html" class="btn btn-lg">
+                Check Air Quality
+            </a>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="home-footer">
+            <p>
+                🌿 Air Quality Monitor
+            </p>
+
+            <span>
+                Making air-quality information easier to understand.
+            </span>
+        </footer>
+
     </main>
+
 </body>
 </html>
