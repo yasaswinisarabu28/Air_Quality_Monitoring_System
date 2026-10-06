@@ -13,22 +13,53 @@
         <section class="search card">
             <h1>Check Air Quality</h1>
             <p class="lead">Enter your city or area to view the latest available air-quality information.</p>
+
             <div class="search-row">
-    <div class="search-field">
-        <input type="text" id="area" placeholder="Enter city or area name" aria-label="City or area name"
-               autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggestions">
-        <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
-    </div>
-    <button id="searchBtn" class="btn" onclick="getPollution()">Check Air Quality</button>
-</div>
-            <p class="note">Air-quality data is retrieved using OpenWeather API.</p>
+                <div class="search-field">
+                    <input
+                        type="text"
+                        id="area"
+                        placeholder="Enter city or area name"
+                        aria-label="City or area name"
+                        autocomplete="off"
+                        role="combobox"
+                        aria-expanded="false"
+                        aria-controls="suggestions"
+                    >
+
+                    <ul
+                        id="suggestions"
+                        class="suggestions"
+                        role="listbox"
+                        hidden
+                    ></ul>
+                </div>
+
+                <button
+                    id="searchBtn"
+                    class="btn"
+                    onclick="getPollution()"
+                >
+                    Check Air Quality
+                </button>
+            </div>
+
+            <p class="note">
+                Air-quality data is retrieved using OpenWeather API.
+            </p>
         </section>
 
         <div id="result" aria-live="polite"></div>
 
-        <p class="back"><a href="index.html">← Back to Home</a></p>
+        <p class="back">
+            <a href="index.html">← Back to Home</a>
+        </p>
     </main>
-   
+
+    <!-- Load config.js FIRST -->
+    <script src="config.js"></script>
+
+    <!-- Load script.js SECOND -->
     <script src="script.js"></script>
 </body>
 </html>
